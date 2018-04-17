@@ -265,7 +265,7 @@ class CourseChecker:
             course_number,
             section
         )
-        msg["From"] = "Waitlist Watcher <WaitlistWatcher@Waitlister.com>"
+        msg["From"] = "Waitlist Watcher <WaitlistWatcher@InternalSystem.ca>"
         msg["To"] = addr
 
         server.send_message(msg)
