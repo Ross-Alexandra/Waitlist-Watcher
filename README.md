@@ -2,7 +2,7 @@
 A basic GUI to aid UVIC students in finding a seat in a course.
 
 # Usage
-After cloning the repo, navigate to the .../Waitlist-Watcher/ and run the command
+After cloning the repo, navigate to /.../Waitlist-Watcher/ and run the command
 ``` commandline
 python -m .
 ```
