@@ -9,7 +9,7 @@ import requests
 class CourseChecker:
     def __init__(self, master):
 
-        master.geometry("300x340")
+        master.geometry("300x400")
         master.resizable(width=False, height=False)
 
         self.master = master
@@ -25,67 +25,67 @@ class CourseChecker:
         self.subject_code_entry.place(x=150, y=45, anchor="center")
 
         self.course_number_label = Label(master, text="Course Number (eg: 275)")
-        self.course_number_label.place(x=150, y=70, anchor="center")
+        self.course_number_label.place(x=150, y=75, anchor="center")
 
         self.course_number_entry = Entry(master)
-        self.course_number_entry.place(x=150, y=90, anchor="center")
+        self.course_number_entry.place(x=150, y=95, anchor="center")
 
         self.section_label = Label(master, text="Section (eg: A01)")
-        self.section_label.place(x=150, y=115, anchor="center")
+        self.section_label.place(x=150, y=125, anchor="center")
 
         self.section_entry = Entry(master)
-        self.section_entry.place(x=150, y=130, anchor="center")
+        self.section_entry.place(x=150, y=145, anchor="center")
 
         self.email_label = Label(master, text="Enter your email")
-        self.email_label.place(x=150, y=150, anchor="center")
+        self.email_label.place(x=150, y=175, anchor="center")
 
         self.email_entry = Entry(master)
-        self.email_entry.place(x=150, y=165, anchor="center")
+        self.email_entry.place(x=150, y=195, anchor="center")
 
         self.term_selection_label = Label(master, text="Select a term")
-        self.term_selection_label.place(x=10, y=185, anchor='w')
+        self.term_selection_label.place(x=10, y=225, anchor='w')
 
         self.term_selector = StringVar(master)
         self.term_selector.set("Fall")
         term_selection_option_menu = OptionMenu(master, self.term_selector, "Fall", "Winter", "Summer")
-        term_selection_option_menu.place(x=10, y=205, anchor="w", height=25)
+        term_selection_option_menu.place(x=10, y=250, anchor="w", height=25)
 
         self.interval_entry = Entry(master)
-        self.interval_entry.place(x=290, y=205, anchor='e')
+        self.interval_entry.place(x=290, y=250, anchor='e')
 
         self.interval_label = Label(master, text="Ping interval (s) (min 120s)")
-        self.interval_label.place(x=290, y=185, anchor='e')
+        self.interval_label.place(x=290, y=225, anchor='e')
 
         #: Outputs.
         self.seats_label = Label(master, text="Seats:")
-        self.seats_label.place(x=40, y=265, anchor="center")
+        self.seats_label.place(x=40, y=320, anchor="center")
 
         self.seat_capacity_label = Label(master, text="Capacity: 0")
-        self.seat_capacity_label.place(x=120, y=285, anchor="e")
+        self.seat_capacity_label.place(x=120, y=340, anchor="e")
 
         self.seat_actual_label = Label(master, text="Actual: 0")
-        self.seat_actual_label.place(x=120, y=300, anchor="e")
+        self.seat_actual_label.place(x=120, y=360, anchor="e")
 
         self.seat_remaining_label = Label(master, text="Remaining: 0")
-        self.seat_remaining_label.place(x=120, y=315, anchor="e")
+        self.seat_remaining_label.place(x=120, y=380, anchor="e")
 
         self.waitlist_label = Label(master, text="Waitlist:")
-        self.waitlist_label.place(x=200, y=265, anchor="center")
+        self.waitlist_label.place(x=200, y=320, anchor="center")
 
         self.waitlist_capacity_label = Label(master, text="Capacity: 0")
-        self.waitlist_capacity_label.place(x=280, y=285, anchor="e")
+        self.waitlist_capacity_label.place(x=280, y=340, anchor="e")
 
         self.waitlist_actual_label = Label(master, text="Actual: 0")
-        self.waitlist_actual_label.place(x=280, y=300, anchor="e")
+        self.waitlist_actual_label.place(x=280, y=360, anchor="e")
 
         self.waitlist_remaining_label = Label(master, text="Remaining: 0")
-        self.waitlist_remaining_label.place(x=280, y=315, anchor="e")
+        self.waitlist_remaining_label.place(x=280, y=380, anchor="e")
 
         self.submit_button = Button(master, text="Submit", command=self.submit_info)
-        self.submit_button.place(x=75, y=235, anchor="center", width=125, height=35)
+        self.submit_button.place(x=75, y=290, anchor="center", width=125, height=35)
 
         self.watch_button = Button(master, text="Watch Course", command=self.watch_for_course)
-        self.watch_button.place(x=225, y=235, anchor="center", width=125, height=35)
+        self.watch_button.place(x=225, y=290, anchor="center", width=125, height=35)
 
     def get_course_info(self):
         subject_code = self.subject_code_entry.get().strip().upper()
