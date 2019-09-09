@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
-import argparse
 from datetime import datetime
+from time import sleep
+
+import argparse
 import requests
 
 
@@ -54,7 +56,14 @@ def get_seat_info(course_code: str, course_number: int, section: str, s_term: st
         .format(term_in, course_code, course_number)
 
     #: Get the html page for the generated url, and create a soup.
-    response = requests.get(course_search_url)
+    response = None
+    while not response:
+        try:
+            response = requests.get(course_search_url)
+        except Exception as e:
+            print("Unable to connect to internet to get request. Trying again in 10 seconds.")		
+            sleep(10)
+		
     soup = BeautifulSoup(response.content, "lxml")
 
     #: Get all th tags with a class that is ddtitle.
