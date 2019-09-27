@@ -220,7 +220,7 @@ class CourseChecker:
             server_address = "smtpy.uvic.ca"
         else:
             server_address = "gmail-smtp-in.l.google.com"
-
+			
         try:
             server = smtplib.SMTP(server_address, timeout=3)
         except Exception as e:
@@ -265,7 +265,7 @@ class CourseChecker:
             course_number,
             section
         )
-        msg["From"] = "Waitlist Watcher <WaitlistWatcher@InternalSystem.ca>"
+        msg["From"] = "Waitlist Watcher <WaitlistWatcher@TheServerProject.com>"
         msg["To"] = addr
 
         server.send_message(msg)
